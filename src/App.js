@@ -16,13 +16,25 @@ class BooksApp extends React.Component {
       BooksAPI.update(book, shelf).then(() => {
         book.shelf = shelf;
         this.setState((state) => ({
-          books: state.books.filter((b) => b.id !== book.id).concat([book]),
+          books: state.books
+            .filter((querybook) => querybook.id !== book.id)
+            .concat([book]),
         }));
+        console.log(book, shelf);
       });
     }
   };
 
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({
+        books: books,
+      });
+    });
+  }
+
   render() {
+    const { books } = this.state;
     return (
       <div className="app">
         <Route
@@ -34,10 +46,7 @@ class BooksApp extends React.Component {
                 <h1>MyReads</h1>
               </div>
               <div className="list-books-content">
-                <BookShelf
-                  moveBook={this.moveBook}
-                  booksOnShelf={this.state.books}
-                />
+                <BookShelf booksOnThisShelf={books} moveBook={this.moveBook} />
               </div>
               <AddBook />
             </div>

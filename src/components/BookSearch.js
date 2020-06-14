@@ -23,7 +23,7 @@ class BookSearch extends Component {
         query: query,
       });
       BooksAPI.search(query).then((books) => {
-        console.log(books);
+        // console.log(books);
         if (books.error) {
           books = [];
         }
@@ -48,7 +48,6 @@ class BookSearch extends Component {
                 placeholder="Search by title or author"
               />
             </div>
-            {/* {console.log(BooksAPI.search(this.state.query))} */}
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
