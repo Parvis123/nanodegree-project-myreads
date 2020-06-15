@@ -20,8 +20,8 @@ class BooksApp extends React.Component {
             .filter((querybook) => querybook.id !== book.id)
             .concat([book]),
         }));
-        console.log(book, shelf);
       });
+      // console.log(book, shelf);
     }
   };
 

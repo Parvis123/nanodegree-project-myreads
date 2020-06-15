@@ -4,6 +4,7 @@ class Book extends Component {
   updateBook(shelf) {
     const { book, moveBook } = this.props;
     moveBook(book, shelf);
+    console.log(book, shelf);
   }
   render() {
     const { book } = this.props;
@@ -25,18 +26,18 @@ class Book extends Component {
               value={book.shelf}
               onChange={(e) => this.updateBook(e.target.value)}
             >
-              <option disabled>Move to...</option>
+              <option disabled value="none">
+                Move to...
+              </option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
               <option value="read">Read</option>
-              <option default value="none">
-                None
-              </option>
+              <option value={null}>None</option>
             </select>
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.author}</div>
+        <div className="book-authors">{book.authors}</div>
       </div>
     );
   }
