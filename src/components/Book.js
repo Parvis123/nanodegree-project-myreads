@@ -4,7 +4,6 @@ class Book extends Component {
   updateBook(shelf) {
     const { book, moveBook } = this.props;
     moveBook(book, shelf);
-    console.log(book, shelf);
   }
   render() {
     const { book } = this.props;
@@ -23,7 +22,7 @@ class Book extends Component {
           />
           <div className="book-shelf-changer">
             <select
-              value={book.shelf}
+              value={book.shelf ? book.shelf : "none"}
               onChange={(e) => this.updateBook(e.target.value)}
             >
               <option disabled value="none">

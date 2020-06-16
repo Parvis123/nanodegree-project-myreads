@@ -21,7 +21,6 @@ class BooksApp extends React.Component {
             .concat([book]),
         }));
       });
-      // console.log(book, shelf);
     }
   };
 
