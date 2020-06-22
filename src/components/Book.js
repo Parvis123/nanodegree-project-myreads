@@ -25,7 +25,7 @@ class Book extends Component {
               value={book.shelf ? book.shelf : "none"}
               onChange={(e) => this.updateBook(e.target.value)}
             >
-              <option disabled value="none">
+              <option disabled value="move to">
                 Move to...
               </option>
               <option value="currentlyReading">Currently Reading</option>
